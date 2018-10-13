@@ -1,0 +1,14 @@
+name: ServerSettingsManager
+version: 1.0
+author: Simagdo
+main: de.simagdo.serversettingsmanager.system.ServerSettingsManager
+api-version: 1.13
+
+commands:
+  SSM:
+    description: The main command
+    permissions: SSM.Admin
+
+permissions:
+  SSM.Admin:
+    default: op
