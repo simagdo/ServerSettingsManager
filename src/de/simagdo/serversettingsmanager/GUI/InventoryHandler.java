@@ -43,13 +43,12 @@ public abstract class InventoryHandler {
      *
      * @param material    type of the item
      * @param amount      how many items will be used
-     * @param meta        what item meta should be used
      * @param displayName of the item
      * @param lores       which will be displayed
      * @return the custom item
      */
-    public ItemStack createItemStack(Material material, int amount, int meta, String displayName, String... lores) {
-        ItemStack itemStack = new ItemStack(material, amount, (byte) meta);
+    public ItemStack createItemStack(Material material, int amount, String displayName, String... lores) {
+        ItemStack itemStack = new ItemStack(material, amount);
         ItemMeta itemMeta = itemStack.getItemMeta();
         itemMeta.setDisplayName(ChatColor.translateAlternateColorCodes('&', displayName));
         ArrayList<String> lore = new ArrayList<>();
@@ -111,7 +110,7 @@ public abstract class InventoryHandler {
      * @return back item
      */
     public ItemStack back() {
-        return createItemStack(Material.ARROW, 1, 0, "&bBack", "&7Click to go back");
+        return createItemStack(Material.ARROW, 1, "&bBack", "&7Click to go back");
     }
 
 }

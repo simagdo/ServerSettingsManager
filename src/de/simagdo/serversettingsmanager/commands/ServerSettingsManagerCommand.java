@@ -1,6 +1,6 @@
 package de.simagdo.serversettingsmanager.commands;
 
-import de.simagdo.serversettingsmanager.GUI.MainGUI;
+import de.simagdo.serversettingsmanager.GUI.ServerPropertiesGUI;
 import de.simagdo.serversettingsmanager.system.ServerSettingsManager;
 import de.simagdo.serversettingsmanager.utils.Utils;
 import net.md_5.bungee.api.chat.HoverEvent;
@@ -38,7 +38,8 @@ public class ServerSettingsManagerCommand implements CommandExecutor {
                     return true;
                 }
                 if (args[0].equalsIgnoreCase("settings")) {
-                    player.openInventory(new MainGUI().openInventory(27, "§eServer Settings"));
+                    //player.openInventory(new MainGUI().openInventory(27, "§eServer Settings"));
+                    player.openInventory(new ServerPropertiesGUI().openInventory(54, "§eServer Properties"));
                 }
             } else {
                 Utils.sendActionBarMessage(player, "§cYou do not have Permission to use that command!");

@@ -1,6 +1,8 @@
 package de.simagdo.serversettingsmanager.system;
 
 import de.simagdo.serversettingsmanager.commands.ServerSettingsManagerCommand;
+import de.simagdo.serversettingsmanager.listener.ServerSettingsManagerListener;
+import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
@@ -18,6 +20,7 @@ public class ServerSettingsManager extends JavaPlugin {
 
         //Register
         registerCommands();
+        registerEvents(getServer().getPluginManager());
 
     }
 
@@ -28,6 +31,10 @@ public class ServerSettingsManager extends JavaPlugin {
 
     private void registerCommands() {
         getCommand("SSM").setExecutor(new ServerSettingsManagerCommand(this));
+    }
+
+    private void registerEvents(PluginManager pluginManager) {
+        pluginManager.registerEvents(new ServerSettingsManagerListener(this), this);
     }
 
 }
