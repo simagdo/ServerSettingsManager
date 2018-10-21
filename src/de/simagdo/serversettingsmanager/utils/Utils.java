@@ -39,4 +39,20 @@ public class Utils {
         con.sendPacket(packet);
     }
 
+    /**
+     * Check if the location is between two points
+     *
+     * @param a point of location
+     * @param b point of location
+     * @param c point of location
+     * @return if the position is between the points
+     */
+    public static boolean isBetween(double a, double b, double c) {
+        return b > a ? c > a && c < b : c > b && c < a;
+    }
+
+    public static boolean between(int i, int minValueInclusive, int maxValueInclusive) {
+        return (i >= minValueInclusive && i <= maxValueInclusive);
+    }
+
 }
