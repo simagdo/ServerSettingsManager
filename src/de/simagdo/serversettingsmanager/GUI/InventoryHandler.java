@@ -16,6 +16,8 @@ import java.util.ArrayList;
 
 /**
  * Creates a custom Inventory where you can specify the player, who receive the inventory, the size and the name.
+ * @author Simagdo
+ * @version 1.0
  */
 public abstract class InventoryHandler {
 

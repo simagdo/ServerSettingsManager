@@ -10,6 +10,10 @@ import net.minecraft.server.v1_13_R2.PlayerConnection;
 import org.bukkit.craftbukkit.v1_13_R2.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 
+/**
+ * @author Simagdo
+ * @version 1.0
+ */
 public class Utils {
 
     /**
@@ -40,19 +44,15 @@ public class Utils {
     }
 
     /**
-     * Check if the location is between two points
+     * Check if the currentValue is between the minValue and the maxValue
      *
-     * @param a point of location
-     * @param b point of location
-     * @param c point of location
+     * @param currentValue which will be checked if between
+     * @param minValue     of the check
+     * @param maxValue     of the check
      * @return if the position is between the points
      */
-    public static boolean isBetween(double a, double b, double c) {
-        return b > a ? c > a && c < b : c > b && c < a;
-    }
-
-    public static boolean between(int i, int minValueInclusive, int maxValueInclusive) {
-        return (i >= minValueInclusive && i <= maxValueInclusive);
+    public static boolean between(int currentValue, int minValue, int maxValue) {
+        return (currentValue >= minValue && currentValue <= maxValue);
     }
 
 }

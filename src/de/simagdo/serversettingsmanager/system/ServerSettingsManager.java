@@ -7,12 +7,12 @@ import de.simagdo.serversettingsmanager.utils.Utils;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import java.io.File;
-
+/**
+ * @author Simagdo
+ * @version 1.0
+ */
 public class ServerSettingsManager extends JavaPlugin {
 
-    public final static File SERVER_PROPERTIES = new File("server.properties");
-    public final static File SPIGOT = new File("spigot.yml");
     public final static String prefix = "§5[§7SSM§5] §f";
 
     public static void main(String[] args) {

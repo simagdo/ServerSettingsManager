@@ -5,6 +5,10 @@ import org.bukkit.configuration.file.FileConfiguration;
 import java.io.File;
 import java.io.IOException;
 
+/**
+ * @author Simagdo
+ * @version 1.0
+ */
 public abstract class ConfigHandler {
 
     /**

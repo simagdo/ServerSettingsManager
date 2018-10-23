@@ -10,6 +10,10 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+/**
+ * @author Simagdo
+ * @version 1.0
+ */
 public class ServerSettingsManagerCommand implements CommandExecutor {
 
     private ServerSettingsManager plugin;
@@ -31,15 +35,18 @@ public class ServerSettingsManagerCommand implements CommandExecutor {
             //Check if Player is Operator
             if (player.isOp()) {
                 if (args.length == 0) {
-                    Utils.sendHoverMessage(player, ServerSettingsManager.prefix + ChatColor.GRAY + "You need help? " + ChatColor.DARK_GREEN + "» " + ChatColor.GREEN + "/SSM help", HoverEvent.Action.SHOW_TEXT,
+                    Utils.sendHoverMessage(player, ServerSettingsManager.prefix + ChatColor.GRAY + "You need help? " + ChatColor.DARK_GREEN + "» " + ChatColor.GREEN +
+                                    "Hover over the Text to see the commands ", HoverEvent.Action.SHOW_TEXT,
                             "§6Avaible commands: \n\n" +
-                                    "§7• Help: §bChange the Settings");
+                                    "§7• settings: §bChange the Settings Properties");
 
                     return true;
                 }
-                if (args[0].equalsIgnoreCase("settings")) {
-                    //player.openInventory(new MainGUI().openInventory(27, "§eServer Settings"));
-                    player.openInventory(new ServerPropertiesGUI().openInventory(54, "§eServer Properties"));
+                switch (args[0]) {
+                    //Open the Server Properties GUI
+                    case "settings":
+                        player.openInventory(new ServerPropertiesGUI().openInventory(54, "§eServer Properties"));
+                        break;
                 }
             } else {
                 Utils.sendActionBarMessage(player, "§cYou do not have Permission to use that command!");

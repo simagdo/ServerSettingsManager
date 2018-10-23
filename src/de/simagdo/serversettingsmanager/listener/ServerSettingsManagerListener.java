@@ -4,7 +4,6 @@ import de.simagdo.serversettingsmanager.GUI.ServerPropertiesGUI;
 import de.simagdo.serversettingsmanager.config.ServerSettingsManagerConfig;
 import de.simagdo.serversettingsmanager.system.ServerSettingsManager;
 import de.simagdo.serversettingsmanager.utils.Utils;
-import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -15,6 +14,10 @@ import org.bukkit.inventory.ItemStack;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author Simagdo
+ * @version 1.0
+ */
 public class ServerSettingsManagerListener implements Listener {
 
     private ServerSettingsManager plugin;
@@ -35,8 +38,6 @@ public class ServerSettingsManagerListener implements Listener {
 
         if (inventoryNames.contains(event.getInventory().getName()))
             event.setCancelled(true);
-
-        //player.sendMessage("§eInventory: §a" + event.getInventory().getName() + ", §eSlot: §a" + event.getSlot());
 
         //Check which Inventory is currently open
         switch (event.getInventory().getName()) {
@@ -66,7 +67,7 @@ public class ServerSettingsManagerListener implements Listener {
         //Check what Item was clicked
         if (lore.size() == 6) {
             int currentValue = Integer.valueOf(lore.get(lore.size() - 3).substring(lore.get(lore.size() - 3).indexOf(':') + 4));
-            Bukkit.broadcastMessage("§eAction: §a" + action + ", §eSetting: §a" + setting + ", §eCurrent Value: §a" + currentValue);
+            //Bukkit.broadcastMessage("§eAction: §a" + action + ", §eSetting: §a" + setting + ", §eCurrent Value: §a" + currentValue);
 
             switch (setting) {
                 case "view-distance":
@@ -84,7 +85,7 @@ public class ServerSettingsManagerListener implements Listener {
             }
         } else {
             boolean currentState = !lore.get(1).split(" ")[2].equalsIgnoreCase("enable");
-            Bukkit.broadcastMessage("§eAction: §a" + action + ", §eSetting: §a" + setting + ", §eCurrent Value: §a" + currentState);
+            //Bukkit.broadcastMessage("§eAction: §a" + action + ", §eSetting: §a" + setting + ", §eCurrent Value: §a" + currentState);
 
             config.setProperty(setting, !currentState);
 
